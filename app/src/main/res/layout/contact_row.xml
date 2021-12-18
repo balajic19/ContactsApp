@@ -10,11 +10,14 @@
     android:weightSum="1"
     android:gravity="center">
 
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_weight="0.7">
+
+<!--        Textview which shows contact name-->
         <TextView
             android:id="@+id/contactNameTV"
             android:layout_width="match_parent"
@@ -23,16 +26,17 @@
             android:textStyle="bold"
             tools:text="contact name"/>
 
+<!--        Textview shows contact number-->
         <TextView
             android:id="@+id/contactNumberTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/contactNameTV"
             android:layout_marginBottom="1dp"
             tools:text="contact number" />
 
     </LinearLayout>
 
+<!--    Button to delete the contact when clicked-->
     <Button
         android:layout_weight="0.3"
         android:id="@+id/deleteContact"
@@ -41,6 +45,6 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="5dp"
         android:backgroundTint="#F83E16"
-        android:text="delete" />
+        android:text="@string/delete" />
 
 </LinearLayout>

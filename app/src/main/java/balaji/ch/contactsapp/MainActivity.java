@@ -25,6 +25,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+
+//    Declaring required variables for the code
     private RecyclerView recyclerView;
     private FloatingActionButton fabButton;
     private List<Contacts> contactsList = new ArrayList<>();
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences prefs;
     private SharedPreferences.Editor prefsEditor;
 
+//    One of the CRUD operations is made here
     public void deleteContact(int position) {
         contactsList.remove(position);
         saveData();
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        Initializing all the required variables
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -50,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         fabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                on CLicking the floating action button, we are starting a new activity
                 Intent i = new Intent(getApplicationContext(), AddNewContact.class);
                 startActivity(i);
 
@@ -65,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+//        calling readPreferences() method to get shared preferences data
         contactsList = readPreferences();
 
         if(contactsList != null){
@@ -75,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void saveData(){
+//        Made use of Gson to save the List as json in saved preferences
         prefsEditor = prefs.edit();
         Gson gson = new Gson();
         String json = gson.toJson(contactsList);

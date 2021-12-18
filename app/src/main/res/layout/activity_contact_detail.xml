@@ -3,58 +3,62 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="10dp">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    style="@style/word_title">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        style="@style/word_title">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Name:"
-            android:textSize="30dp" />
+<!--            Name text-->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/name"
+                android:textSize="30sp" />
 
-        <EditText
-            android:id="@+id/contactNameET"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="6"/>
+<!--            Can edit name -->
+            <EditText
+                android:id="@+id/contactNameET"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+<!--            Contact text-->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/number"
+                android:textSize="30sp" />
+
+<!--            Can edit contact number-->
+            <EditText
+                android:id="@+id/contactNumberET"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:inputType="phone"/>
+        </LinearLayout>
     </LinearLayout>
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Number:"
-            android:textSize="30dp" />
-
-        <EditText
-            android:id="@+id/contactNumberET"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:inputType="phone"/>
-    </LinearLayout>
-</LinearLayout>
-
+<!--    Button to save the data-->
     <Button
         android:id="@+id/saveContactButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SAVE"
-        android:layout_margin="30dp"/>
+        android:text="@string/save"
+        android:layout_margin="30sp"/>
 
 </LinearLayout>

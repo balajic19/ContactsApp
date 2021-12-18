@@ -19,11 +19,14 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+//This is an adapter class which is used to add the Contacts details to each card layout
 public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyViewHolder>{
 
+//    Declaring required variables
     private MainActivity context;
     private List<Contacts> contactsList;
 
+//    Constructor to initialize the required variables
     public ContactsAdapter(MainActivity context, List<Contacts> contactsList) {
         this.context = context;
         this.contactsList = contactsList;
@@ -42,13 +45,16 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
+//        declaring the variables
         Contacts contacts = contactsList.get(position);
         holder.contactName.setText(contacts.getContactName());
         holder.contactNumber.setText(contacts.getContactNumber());
 
+//        When clicked on the cardview or each tap or contact this method is invoked
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                When click on this view, we wil be redirected to the next activity, ContactDetailActivity
                 Intent i = new Intent(context, ContactDetailActivity.class);
                 i.putExtra("name", contacts.getContactName());
                 i.putExtra("contact", contacts.getContactNumber());
@@ -58,6 +64,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
             }
         });
 
+//        When we click on the delete button of the cardview, this method is invoked and deleteContact which is present in the MainActivity is called to delete the row.
         holder.deleteContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,7 +80,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
     }
 
 
-    //    Create a new ViewHolder class to hold my data
+    //    Create a new ViewHolder class to hold contacts data
     public static class MyViewHolder extends RecyclerView.ViewHolder{
     //        Create widgets
         public TextView contactName,contactNumber;
